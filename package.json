@@ -1,0 +1,19 @@
+{
+  "name": "aes-test",
+  "version": "0.1.0",
+  "description": "My implementation of the AES Front End Developer Skill Test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "expresso test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puck7744/AES-Front-End-Test.git"
+  },
+  "author": "Tristan Shelton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/puck7744/AES-Front-End-Test/issues"
+  },
+  "homepage": "https://github.com/puck7744/AES-Front-End-Test#readme"
+}
