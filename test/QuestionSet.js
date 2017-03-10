@@ -15,11 +15,12 @@ describe('Question set', function () {
     assert.equal(questions, questions.narrow());
     assert.equal(questions, questions.noanswers);
   });
-  it('#array returns question objects', function() {
-    let question = questions.array[0];
-
-    assert.notEqual(question.text, undefined);
-    assert.notEqual(question.answer, undefined);
+  it('#array returns valid question objects', function() {
+    questions.forEach((question) => {
+      assert.notEqual(question.text, undefined);
+      assert.notEqual(question.answer, undefined);
+      assert.notEqual(question.choice_a, undefined);
+    });
   });
   it('#narrow(10).array returns a 10 element array', function() {
     assert.equal(questions.narrow(10).array.length, 10);
