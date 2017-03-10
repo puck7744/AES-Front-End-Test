@@ -4,7 +4,7 @@
   "description": "My implementation of the AES Front End Developer Skill Test.",
   "main": "index.js",
   "scripts": {
-    "test": "expresso test/*"
+    "test": "./node_modules/.bin/mocha -R spec"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/puck7744/AES-Front-End-Test/issues"
   },
-  "homepage": "https://github.com/puck7744/AES-Front-End-Test#readme"
+  "homepage": "https://github.com/puck7744/AES-Front-End-Test#readme",
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {}
 }
