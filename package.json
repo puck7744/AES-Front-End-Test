@@ -4,6 +4,8 @@
   "description": "My implementation of the AES Front End Developer Skill Test.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js",
+    "watch": "nodemon ./index.js",
     "test": "./node_modules/.bin/mocha -R spec",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
     "coveralls": "npm run-script coverage && node ./node_modules/coveralls/bin/coveralls < coverage/lcov.info"
