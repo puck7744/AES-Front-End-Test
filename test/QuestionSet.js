@@ -39,7 +39,7 @@ describe('Question set', function () {
     let result = questions.noanswers.array;
 
     for (var i in result) {
-      assert(result[i].answer, undefined);
+      assert.equal(result[i].answer, undefined);
     }
   });
 });
