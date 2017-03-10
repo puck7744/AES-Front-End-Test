@@ -1,13 +1,15 @@
 var request = require('supertest');
 
 describe('loading express', function () {
-  var server;
+  let server;
 
   beforeEach(function () {
+    // Force server to reload for each test
+    delete require.cache[require.resolve('../index.js')];
     server = require('../index.js');
   });
-  afterEach(function () {
-    server.close();
+  afterEach(function (done) {
+    server.close(done);
   });
 
   it('responds to /', function testSlash(done) {
@@ -16,9 +18,9 @@ describe('loading express', function () {
       .expect(200, done);
   });
 
-  it('404 everything else', function testPath(done) {
+  it('404 non-existent page', function testPath(done) {
     request(server)
-      .get('/foo/bar')
+      .get('/foobar')
       .expect(404, done);
   });
 });
