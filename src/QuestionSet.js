@@ -1,5 +1,21 @@
 var questionData = require('../data/questions.json');
 
+// Filter invalid questions
+(() => {
+  let invalid = 0;
+
+  questionData.forEach((question, i) => {
+    if (question.text === undefined || question.answer === undefined || question.choice_a === undefined) {
+      questionData.splice(i, 1); // Remove from the array
+      console.log(i);
+      invalid++;
+    }
+  });
+
+  if (invalid > 0)
+    console.log(`Found ${invalid} invalid questions in source file`);
+})();
+
 class QuestionSet {
   constructor() {
     // Clone the data
