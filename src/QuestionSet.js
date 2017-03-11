@@ -7,7 +7,6 @@ var questionData = require('../data/questions.json');
   questionData.forEach((question, i) => {
     if (question.text === undefined || question.answer === undefined || question.choice_a === undefined) {
       questionData.splice(i, 1); // Remove from the array
-      console.log(i);
       invalid++;
     }
   });
@@ -19,7 +18,10 @@ var questionData = require('../data/questions.json');
 class QuestionSet {
   constructor() {
     // Clone the data
-    this.questions = questionData.slice(0);
+    this.questions = [];
+    questionData.forEach((question) => {
+      this.questions.push(Object.assign({}, question));
+    });
   }
 
   narrow(num) {
