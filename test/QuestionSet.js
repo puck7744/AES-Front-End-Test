@@ -19,19 +19,24 @@ describe('Question set', function () {
       assert.notEqual(question.choice_a, undefined);
     });
   });
-  it('#select(10).array returns a 10 element array', function() {
-    assert.equal(questions.select(10).array.length, 10);
-  });
-  it('#select(0).array returns an empty array', function() {
-    let result = questions.select(0).array;
-
-    assert.equal(result.constructor, Array);
-    assert.equal(result.length, 0);
-  });
   it('#select(1000).array returns all questions', function() {
     let length = questions.array.length;
 
     assert.equal(questions.select(1000).array.length, length);
+  });
+  it('#select(10).array returns a 10 element array', function() {
+    assert.equal(questions.select(10).array.length, 10);
+  });
+  it('#select(i).array returns an empty array for i <= 0', function() {
+    let result = questions.select(0).array;
+
+    assert.equal(result.constructor, Array);
+    assert.equal(result.length, 0);
+
+    result = questions.select(-1).array;
+
+    assert.equal(result.constructor, Array);
+    assert.equal(result.length, 0);
   });
   it('#noanswers leaves no answer properties', function() {
     let result = questions.noanswers.array;
