@@ -8,6 +8,7 @@ var QuestionSet = require('./src/QuestionSet.js')
 app.set('port', (process.env.PORT || 5000));
 app.set('views', 'src/views');
 app.set('view engine', 'jsx');
+app.use(express.static('static'));
 
 // This route amounts to our minimal controller
 app.get('/', function (req, res) {

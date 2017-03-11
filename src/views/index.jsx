@@ -5,6 +5,7 @@ module.exports = function(options) {
     <html>
       <head>
         <title>Sample Quiz</title>
+        <link rel="stylesheet" href="/style.css" />
       </head>
       <body>
         <div id="container" />
