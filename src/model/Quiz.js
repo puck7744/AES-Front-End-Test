@@ -1,4 +1,4 @@
-var questionData = require('../data/questions.json');
+var questionData = require('../../data/questions.json');
 
 // Filter invalid questions
 (() => {

@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Quiz = require('./views/components/Quiz.jsx');
+var Quiz = require('./components/Quiz.jsx');
 
 // Read questions from rendered element
 var questions = JSON.parse(document.getElementById('initial-data').getAttribute('data-json'));

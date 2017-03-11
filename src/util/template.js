@@ -11,7 +11,7 @@ module.exports = function(app) {
   // TODO: Make this a part of the build process
   app.use('/bundle.js', function(req, res) {
     res.setHeader('content-type', 'application/javascript');
-    browserify('src/client.js')
+    browserify('src/view/client.js')
       .transform('reactify')
       .bundle()
       .pipe(res);

@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-describe('Question set', function () {
+describe('Quiz model', function () {
   let QuestionSet = require('../src/QuestionSet');
   let questions;
 
