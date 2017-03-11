@@ -14,6 +14,7 @@ var questionData = require('../data/questions.json');
   console.log(`Found ${invalid} invalid questions in source file`);
 })();
 
+// Something like a model for the JSON data
 class QuestionSet {
   constructor() {
     // Clone the data
@@ -27,8 +28,9 @@ class QuestionSet {
     if (num === undefined) num = 10;
     num = Math.min(Math.max(0, num), this.questions.length);
 
-    let finalQuestions = [];
+    let finalQuestions = []; // Intermediate storage
 
+    // Selects a question from the valid list at random
     let randomQuestion = () => {
       let x = Math.floor(Math.random() * this.questions.length);
       let q = this.questions[x];
@@ -36,6 +38,7 @@ class QuestionSet {
       return q;
     };
 
+    // Pick num questions and replace our local set
     for (let i = 0; i < num; i++) finalQuestions.push(randomQuestion());
     this.questions = finalQuestions;
 
@@ -43,6 +46,7 @@ class QuestionSet {
   }
 
   get noanswers() {
+    // Simply delete answers because we're working on a copy, not a reference
     this.questions.map(function(obj) { delete obj.answer; });
 
     return this;
