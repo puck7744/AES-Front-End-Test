@@ -7,10 +7,10 @@ class Question extends React.Component {
     var answers = [];
     var scope = this;
 
-    Object.keys(this.props.data).map(function(key) {
+    Object.keys(this.props.data).sort().map(function(key) {
       var cap;
       if (typeof(key) === 'string' && (cap = key.match(/choice_([a-z])/)))
-        answers.push(<Answer key={key} id={cap[1]} title={scope.props.data[key]} />);
+        answers.push(<Answer key={key} letter={cap[1]} onClick={() => scope.answer(cap[1])} title={scope.props.data[key]} />);
     });
 
     return (
@@ -21,6 +21,11 @@ class Question extends React.Component {
         </div>
       </div>
     );
+  }
+
+  answer(choice) {
+    console.log("question answered: "+choice);
+    this.props.onAnswer(choice);
   }
 }
 
