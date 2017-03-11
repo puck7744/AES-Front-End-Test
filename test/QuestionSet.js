@@ -7,16 +7,13 @@ describe('Question set', function () {
   beforeEach(function () {
     questions = new QuestionSet();
   });
-  afterEach(function() {
-    delete questions;
-  });
 
   it('can be chained', function() {
     assert.equal(questions, questions.narrow());
     assert.equal(questions, questions.noanswers);
   });
   it('#array returns valid question objects', function() {
-    questions.forEach((question) => {
+    questions.array.forEach((question) => {
       assert.notEqual(question.text, undefined);
       assert.notEqual(question.answer, undefined);
       assert.notEqual(question.choice_a, undefined);
