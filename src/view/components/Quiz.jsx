@@ -2,6 +2,7 @@ var React = require('react');
 
 var Progress = require('./Progress.jsx');
 var Question = require('./Question.jsx');
+var Grade = require('./Grade.jsx');
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class Quiz extends React.Component {
     if (q < this.props.questions.length)
       page = <Question number={this.state.currentQuestion} data={this.props.questions[q]} onAnswer={(choice) => this.update(q, choice)} />;
     else
-      page = <h1>All done!</h1>;
-    
+      page = <Grade answers={this.state.answers} />;
+
     return (
       <div className="quiz">
         <Progress current={q} answers={this.state.answers} />
