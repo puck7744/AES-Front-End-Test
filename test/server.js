@@ -12,13 +12,22 @@ describe('loading express', function () {
     server.close(done);
   });
 
-  it('responds to /', function testSlash(done) {
+  it('responds to /', function(done) {
     request(server)
       .get('/')
       .expect(200, done);
   });
 
-  it('404 non-existent page', function testPath(done) {
+  it('serves Javascript at /bundle.js', function(done) {
+    this.timeout(10000); // Bundling may take some time
+    
+    request(server)
+      .get('/bundle.js')
+      .expect(200)
+      .expect('Content-Type', 'application/javascript', done);
+  });
+
+  it('404 non-existent page', function(done) {
     request(server)
       .get('/foobar')
       .expect(404, done);

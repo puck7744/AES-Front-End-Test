@@ -11,8 +11,7 @@ var questionData = require('../data/questions.json');
     }
   });
 
-  if (invalid > 0)
-    console.log(`Found ${invalid} invalid questions in source file`);
+  console.log(`Found ${invalid} invalid questions in source file`);
 })();
 
 class QuestionSet {
