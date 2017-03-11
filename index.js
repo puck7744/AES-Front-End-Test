@@ -11,7 +11,7 @@ app.set('view engine', 'jsx');
 
 // This route amounts to our minimal controller
 app.get('/', function (req, res) {
-  res.locals.questions = new QuestionSet().narrow(10).noanswers.array;
+  res.locals.questions = new QuestionSet().select(10).noanswers.array;
 
   res.render('index');
 });

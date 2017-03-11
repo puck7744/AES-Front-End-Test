@@ -24,7 +24,7 @@ class QuestionSet {
     });
   }
 
-  narrow(num) {
+  select(num) {
     if (num === undefined) num = 10;
     num = Math.min(Math.max(0, num), this.questions.length);
 
