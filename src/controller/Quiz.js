@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
 router.post('/submit/', function(req, res) {
   if (req.session.questions === undefined)
-    return res.status(500).send();
+    return res.status(200).json({ results: [] });
 
   if (req.body.answers === undefined || req.body.answers.length != req.session.questions.length)
     return res.status(400).send();
@@ -25,7 +25,7 @@ router.post('/submit/', function(req, res) {
       results.push(false);
   });
 
-  res.status(200).json({results: results});
+  res.status(200).json({ results: results });
 });
 
 module.exports = router;
