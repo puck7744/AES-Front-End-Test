@@ -1,3 +1,78 @@
 body {
-  background: #efefef;
+  background: #f2f2f2;
+}
+
+.container {
+  width: 960px;
+  margin: auto;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+  height: 500px;
+  float: left;
+  padding-top: 1em;
+}
+  .progress-stop, .progress-run {
+    background: #bdbdbd;
+    margin: auto;
+  }
+  .progress-stop {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  .progress-run {
+    width: 4px;
+    flex: 100 0 1px;
+  }
+
+  .progress-stop.complete {
+    background: #27AE60;
+  }
+  .progress-stop.active {
+    background: #F2994A;
+  }
+  .progress-run.complete {
+    background: #6FCF97;
+  }
+
+  .progress-stop:hover {
+    background: #828282;
+    cursor: pointer;
+  }
+  .progress-stop.active:hover {
+    background: #F2994A;
+  }
+  .progress-stop.complete:hover {
+    background: #219653;
+  }
+
+.question {
+  width: 90%;
+  float: left;
+}
+
+.question h1, .answers button {
+  font-family: Verdana, sans-serif;
+}
+
+.answers button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 14pt;
+  padding: 1em;
+  color: #f2f2f2;
+  background: #2F80ED;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1em;
+}
+.answers button:hover {
+  background: #2D9CDB;
+  cursor: pointer;
 }

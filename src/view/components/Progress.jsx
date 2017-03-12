@@ -9,10 +9,10 @@ class Progress extends React.Component {
     let answers = this.props.answers;
 
     for (let i = 0; i < answers.length; i++) {
-      bar.push(<ProgressStop key={'stop'+i} />);
+      bar.push(<ProgressStop key={'stop'+i} active={i == this.props.current} complete={!!answers[i]} />);
 
       if (i+1 < answers.length) // Not last stop?
-        bar.push(<ProgressRun key={'run'+i} />);
+        bar.push(<ProgressRun key={'run'+i} complete={!!answers[i]} />);
     }
 
     return (

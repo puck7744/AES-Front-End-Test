@@ -6,4 +6,4 @@ var Quiz = require('./components/Quiz.jsx');
 var questions = JSON.parse(document.getElementById('initial-data').getAttribute('data-json'));
 
 // Create main component and render
-ReactDOM.render(<Quiz questions={questions} />, document.getElementById('quiz'));
+ReactDOM.render(<Quiz questions={questions} />, document.getElementById('canvas'));

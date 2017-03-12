@@ -1,8 +1,10 @@
 var React = require('react');
-class ProgressStop extends React.Component {
-  render() {
-    return <div className="progress-stop" />;
-  }
-}
 
-module.exports = ProgressStop;
+module.exports = function(props) {
+  let classes = 'progress-stop';
+
+  if (props.active) classes += ' active';
+  else if (props.complete) classes += ' complete';
+
+  return <div className={classes} />;
+};

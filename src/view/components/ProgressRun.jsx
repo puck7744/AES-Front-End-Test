@@ -1,8 +1,4 @@
 var React = require('react');
-class ProgressRun extends React.Component {
-  render() {
-    return <div className="progress-run" />;
-  }
+module.exports = function(props) {
+  return <div className={'progress-run' + (props.complete ? ' complete' : '')} />;
 }
-
-module.exports = ProgressRun;

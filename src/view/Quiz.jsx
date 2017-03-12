@@ -8,7 +8,7 @@ module.exports = function(options) {
         <link rel="stylesheet" href="/style.css" />
       </head>
       <body>
-        <div id="quiz" class="container" />
+        <div id="canvas" className="container" />
         <script id="initial-data" data-json={JSON.stringify(options._locals.questions)} />
         <script src="/bundle.js" />
       </body>
