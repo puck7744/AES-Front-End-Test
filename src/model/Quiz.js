@@ -16,10 +16,12 @@ var questionData = require('../../data/questions.json');
 
 // Something like a model for the JSON data
 class QuestionSet {
-  constructor() {
+  constructor(input) {
     // Clone the data
     this.questions = [];
-    questionData.forEach((question) => {
+
+    let data = (input !== undefined ? input : questionData);
+    data.forEach((question) => {
       this.questions.push(Object.assign({}, question));
     });
   }
@@ -41,6 +43,16 @@ class QuestionSet {
     // Pick num questions and replace our local set
     for (let i = 0; i < num; i++) finalQuestions.push(randomQuestion());
     this.questions = finalQuestions;
+
+    return this;
+  }
+
+  get clone() {
+    let newQuestions = [];
+    this.questions.forEach((question) => {
+      newQuestions.push(Object.assign({}, question));
+    });
+    this.questions = newQuestions;
 
     return this;
   }

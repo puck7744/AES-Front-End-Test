@@ -33,8 +33,6 @@ class Quiz extends React.Component {
   }
 
   update(question, choice) {
-    console.log(`quiz progress: ${question} = ${choice}`);
-
     let newAnswers = this.state.answers.slice();
     newAnswers[question] = choice;
 

@@ -29,8 +29,8 @@ class Grade extends React.Component {
   submit() {
     var scope = this;
     var request = new XMLHttpRequest();
-    request.open('POST', '/quiz/submit', true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.open('POST', '/quiz/submit/', true);
+    request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function() {
       switch (request.status) {
@@ -39,6 +39,7 @@ class Grade extends React.Component {
             finished: true,
             success: true
           });
+          console.log(request.response);
           break;
         default:
           scope.setState({
@@ -55,7 +56,7 @@ class Grade extends React.Component {
       });
     };
 
-    request.send({ answers: this.props.answers });
+    request.send(JSON.stringify({ answers: this.props.answers }));
   }
 }
 

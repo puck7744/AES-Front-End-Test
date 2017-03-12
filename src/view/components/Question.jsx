@@ -24,7 +24,6 @@ class Question extends React.Component {
   }
 
   answer(choice) {
-    console.log("question answered: "+choice);
     this.props.onAnswer(choice);
   }
 }
