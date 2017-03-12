@@ -1,6 +1,9 @@
 body {
-  background: #f2f2f2;
+  background: #828282;
+  color: #333;
   font-size: 12pt;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -8,14 +11,21 @@ body {
   margin: auto;
 }
 
+.quiz {
+  height: 100%;
+  background: #f2f2f2;
+  padding-top: 1em;
+}
+
 .progress {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 10%;
+  width: 20px;
   height: 500px;
   float: left;
-  padding-top: 1em;
+  margin: 30px;
+  margin-right: 50px;
 }
   .progress-stop, .progress-run {
     background: #bdbdbd;
@@ -53,7 +63,7 @@ body {
   }
 
 .question, .grade {
-  width: 90%;
+  width: 830px;
   float: left;
 }
 

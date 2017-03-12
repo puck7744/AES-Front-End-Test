@@ -18,8 +18,8 @@ class Grade extends React.Component {
     if (this.state.finished) {
       if (this.state.success) {
         content = [
-          <h1>Your Grade: {this.grade}</h1>,
-          <p>You answered {this.correct} out of {this.total} correctly ({Math.round((this.correct/this.total)*100)}%)</p>
+          <h1 key='title'>Your Grade: {this.grade}</h1>,
+          <p key='desc'>You answered {this.correct} out of {this.total} correctly ({Math.round((this.correct/this.total)*100)}%)</p>
         ];
       }
       else {
