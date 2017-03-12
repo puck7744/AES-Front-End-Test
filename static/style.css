@@ -1,5 +1,6 @@
 body {
   background: #f2f2f2;
+  font-size: 12pt;
 }
 
 .container {
@@ -51,12 +52,12 @@ body {
     background: #219653;
   }
 
-.question {
+.question, .grade {
   width: 90%;
   float: left;
 }
 
-.question h1, .answers button {
+h1, .answers button {
   font-family: Verdana, sans-serif;
 }
 
