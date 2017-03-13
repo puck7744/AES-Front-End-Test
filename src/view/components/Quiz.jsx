@@ -38,7 +38,7 @@ class Quiz extends React.Component {
       content = <Question number={this.state.currentPage} data={questionData} onAnswer={(choice) => this.updatePage(page, choice)} />;
     }
     else {
-      content = <Grade answers={this.state.answers} onReady={this.complete.bind(this)} />;
+      content = <Grade answers={this.state.answers} results={this.state.results} onReady={this.complete.bind(this)} />;
     }
 
     // Render structure and content
@@ -97,10 +97,11 @@ class Quiz extends React.Component {
     this.setState(newState);
   }
 
-  complete(answers) {
+  complete(results, answers) {
     this.updatePage(this.lastPage, null);
 
     this.setState({
+      results: results,
       rightAnswers: answers
     });
   }

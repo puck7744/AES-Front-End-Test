@@ -4,12 +4,20 @@ class Grade extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      finished: false,
-      success: false
-    };
-
-    this.submit(this.props.answers);
+    if (this.props.results) {
+      this.state = {
+        finished: true,
+        success: true,
+        results: this.props.results
+      };
+    }
+    else {
+      this.state = {
+        finished: false,
+        success: false
+      };
+      this.submit(this.props.answers);
+    }
   }
 
   render() {
@@ -90,7 +98,7 @@ class Grade extends React.Component {
             },
             JSON.parse(request.response)
           ));
-          scope.props.onReady(scope.state.answers);
+          scope.props.onReady(scope.state.results, scope.state.answers);
           break;
         default:
           scope.setState({
