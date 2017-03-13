@@ -31,7 +31,7 @@ class Grade extends React.Component {
     }
 
     return (
-      <div className="grade">
+      <div className="page grade">
         {content}
       </div>
     );
@@ -88,6 +88,7 @@ class Grade extends React.Component {
             },
             JSON.parse(request.response)
           ));
+          scope.props.onReady();
           break;
         default:
           scope.setState({

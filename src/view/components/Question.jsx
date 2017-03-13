@@ -14,8 +14,8 @@ class Question extends React.Component {
     });
 
     return (
-      <div className="question">
-        <h1 className="title">{this.props.number+1}. {this.props.data.text}</h1>
+      <div className="page question">
+        <h1 className="title">{this.props.number}. {this.props.data.text}</h1>
         <div className="answers">
           {answers}
         </div>

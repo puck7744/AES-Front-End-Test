@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 20px;
-  height: 500px;
+  height: 550px;
   float: left;
   margin: 30px;
   margin-right: 50px;
@@ -62,7 +62,27 @@ body {
     background: #219653;
   }
 
-.question, .grade {
+  .progress-stop:first-child:before {
+    content: '';
+    display: block;
+    position: relative;
+    top: -28px;
+    left: -15px;
+    width: 42px;
+    height: 42px;
+    background: url('/start.svg') top right no-repeat;
+  }
+  .progress-stop:last-child:before {
+    content: '';
+    display: block;
+    position: relative;
+    top: -10px;
+    width: 42px;
+    height: 42px;
+    background: url('/finish.svg') top right no-repeat;
+  }
+
+.page {
   width: 830px;
   float: left;
 }
@@ -71,7 +91,7 @@ h1, .answers button {
   font-family: Verdana, sans-serif;
 }
 
-.answers button {
+button {
   display: block;
   width: 100%;
   text-align: left;
@@ -83,7 +103,7 @@ h1, .answers button {
   border-radius: 10px;
   margin-top: 1em;
 }
-.answers button:hover {
+button:hover {
   background: #2D9CDB;
   cursor: pointer;
 }

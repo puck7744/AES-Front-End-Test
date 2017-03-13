@@ -6,5 +6,5 @@ module.exports = function(props) {
   if (props.active) classes += ' active';
   else if (props.complete) classes += ' complete';
 
-  return <div className={classes} />;
+  return <div className={classes} onClick={props.onClick} />;
 };
