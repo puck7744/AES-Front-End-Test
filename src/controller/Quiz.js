@@ -28,6 +28,8 @@ router.post('/submit/', function(req, res) {
     correctAnswers.push(question.answer.toUpperCase());
   });
 
+  delete req.session.questions;
+
   res.status(200).json({ results: results, answers: correctAnswers });
 });
 
