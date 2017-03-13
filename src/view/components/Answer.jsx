@@ -2,7 +2,6 @@ var React = require('react');
 
 module.exports = function(props) {
   let classes = 'answer';
-  console.log(props.answer, props.correct);
 
   if (props.correct != null) {
     classes += ' disabled';

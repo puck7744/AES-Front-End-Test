@@ -53,6 +53,12 @@ a:hover {
     width: 4px;
     flex: 100 0 1px;
   }
+  .progress-run:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0%;
+  }
 
   .progress-stop.complete {
     background: #27AE60;
@@ -60,7 +66,8 @@ a:hover {
   .progress-stop.active {
     background: #F2994A;
   }
-  .progress-run.complete {
+  .progress-run.complete:after {
+    height: 100%;
     background: #6FCF97;
   }
 
@@ -98,6 +105,7 @@ a:hover {
 .page {
   width: 830px;
   float: left;
+  opacity: 0;
 }
 
 h1, .answers button {
@@ -130,4 +138,22 @@ button:hover {
 }
 .answer.incorrect {
   background: #EB5757;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Animation */
+.progress-run.complete:after {
+  transition: height 0.4s ease-out;
+}
+
+.progress-stop.complete, .progress-stop.active {
+  transition: 0.4s background 0.4s ease-out;
+}
+
+.page {
+  animation: 0.4s fadein 0.4s forwards;
 }

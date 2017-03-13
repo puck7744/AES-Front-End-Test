@@ -15,7 +15,7 @@ class Question extends React.Component {
     });
 
     return (
-      <div className="page question">
+      <div className="page question" key={'question'+this.props.number}>
         <h1 className="title">{this.props.number}. {this.props.data.text}</h1>
         <div className="answers">
           {answers}

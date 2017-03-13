@@ -20,7 +20,7 @@ class Grade extends React.Component {
         content = [
           <h1 key='title'>Your Grade: {this.grade}</h1>,
           <p key='desc'>You answered {this.correct} out of {this.total} correctly ({Math.round((this.correct/this.total)*100)}%)</p>,
-          <p key='timeline'>Use the timeline to navigate back through pages if you want to check your answers.</p>,
+          <p key='timeline'>Use the timeline to navigate back through pages if you want to check your answers. Correct answers will be green, and your incorrect answers will be red.</p>,
           <p key='done'>When you're done, simply close the window.</p>
         ];
       }
