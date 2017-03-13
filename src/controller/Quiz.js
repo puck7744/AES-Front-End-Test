@@ -18,14 +18,17 @@ router.post('/submit/', function(req, res) {
     return res.status(400).send();
 
   let results = [];
+  let correctAnswers = [];
   req.session.questions.forEach(function(question, i) {
     if (question.answer.toLowerCase() === req.body.answers[i].toLowerCase())
       results.push(true);
     else
       results.push(false);
+
+    correctAnswers.push(question.answer.toUpperCase());
   });
 
-  res.status(200).json({ results: results });
+  res.status(200).json({ results: results, answers: correctAnswers });
 });
 
 module.exports = router;

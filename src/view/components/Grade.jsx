@@ -19,7 +19,9 @@ class Grade extends React.Component {
       if (this.state.success) {
         content = [
           <h1 key='title'>Your Grade: {this.grade}</h1>,
-          <p key='desc'>You answered {this.correct} out of {this.total} correctly ({Math.round((this.correct/this.total)*100)}%)</p>
+          <p key='desc'>You answered {this.correct} out of {this.total} correctly ({Math.round((this.correct/this.total)*100)}%)</p>,
+          <p key='timeline'>Use the timeline to navigate back through pages if you want to check your answers.</p>,
+          <p key='done'>When you're done, simply close the window.</p>
         ];
       }
       else {
@@ -88,7 +90,7 @@ class Grade extends React.Component {
             },
             JSON.parse(request.response)
           ));
-          scope.props.onReady();
+          scope.props.onReady(scope.state.answers);
           break;
         default:
           scope.setState({

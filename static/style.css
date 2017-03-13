@@ -1,9 +1,22 @@
 body {
   background: #828282;
   color: #333;
-  font-size: 12pt;
+  font-size: 14pt;
   margin: 0;
   padding: 0;
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+a, a:visited {
+  color: #2F80ED;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F2994A;
 }
 
 .container {
@@ -106,4 +119,15 @@ button {
 button:hover {
   background: #2D9CDB;
   cursor: pointer;
+}
+
+.answer.disabled {
+  background: #828282;
+  cursor: default;
+}
+.answer.correct {
+  background: #27AE60;
+}
+.answer.incorrect {
+  background: #EB5757;
 }

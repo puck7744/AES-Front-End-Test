@@ -12,7 +12,8 @@ class Quiz extends React.Component {
     this.state = {
       currentPage: 0,
       pages: Array(this.questionCount+2).fill(false),
-      answers: Array(this.questionCount).fill(null)
+      answers: Array(this.questionCount).fill(null),
+      complete: false
     };
     this.state.pages[0] = true;
   }
@@ -22,12 +23,23 @@ class Quiz extends React.Component {
     let content = null;
 
     // Decide content based on page number
-    if (page == 0)
-      content = <Instructions onAdvance={this.complete.bind(this, 0, null)} />;
-    else if (page <= this.questionCount)
-      content = <Question number={this.state.currentPage} data={this.props.questions[page-1]} onAnswer={(choice) => this.complete(page, choice)} />;
-    else
-      content = <Grade answers={this.state.answers} onReady={this.complete.bind(this, this.lastPage, null)} />;
+    if (page == 0) {
+      content = <Instructions onAdvance={this.updatePage.bind(this, 0, null)} />;
+    }
+    else if (page <= this.questionCount) {
+      let questionData = Object.assign(
+        {
+          answer: this.state.answers[page-1],
+          rightAnswer: this.state.rightAnswers ? this.state.rightAnswers[page-1] : null
+        },
+        this.props.questions[page-1]
+      );
+
+      content = <Question number={this.state.currentPage} data={questionData} onAnswer={(choice) => this.updatePage(page, choice)} />;
+    }
+    else {
+      content = <Grade answers={this.state.answers} onReady={this.complete.bind(this)} />;
+    }
 
     // Render structure and content
     return (
@@ -49,7 +61,6 @@ class Quiz extends React.Component {
     if (num === this.lastPage && !this.state.pages[this.lastPage])
       return;
 
-    console.log("set page: ", num);
     this.setState({ currentPage: num });
   }
 
@@ -57,7 +68,7 @@ class Quiz extends React.Component {
     return this.state.pages.length-1;
   }
 
-  complete(page, choice) {
+  updatePage(page, choice) {
     let newState = {};
 
     // Complete page
@@ -84,6 +95,14 @@ class Quiz extends React.Component {
       });
 
     this.setState(newState);
+  }
+
+  complete(answers) {
+    this.updatePage(this.lastPage, null);
+
+    this.setState({
+      rightAnswers: answers
+    });
   }
 }
 
